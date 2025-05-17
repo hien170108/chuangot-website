@@ -1,0 +1,527 @@
+<!DOCTYPE html>
+<html lang="vi">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Trang Chủ - Chua&Ngọt</title>
+    <link rel="stylesheet" href="styles.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+    />
+    <link rel="icon" type="image/x-icon" href="img/favicon.png" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Playwrite+DK+Loopet:wght@100..400&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <header>
+      <div class="container">
+        <div class="logo">
+          <a href="index.html">
+            <img src="img/favicon.png" alt="Chua&Ngọt Logo" class="logo-img" />
+            <h1>
+              <span class="chua">Chua</span>&<span class="ngot">Ngọt</span>
+            </h1>
+          </a>
+        </div>
+        <nav>
+          <ul class="menu">
+            <li><a href="index.html" class="active">Trang Chủ</a></li>
+            <li><a href="about.html">Giới Thiệu</a></li>
+            <li><a href="products.html">Sản Phẩm</a></li>
+            <li><a href="feedback.html">Đánh Giá</a></li>
+            
+          </ul>
+        </nav>
+        <div class="theme-toggle">
+          <span class="theme-toggle-icon"><i class="fas fa-sun"></i></span>
+          <label class="theme-toggle-label">
+            <input
+              type="checkbox"
+              class="theme-toggle-checkbox"
+              id="theme-toggle"
+            />
+            <span class="theme-toggle-slider"></span>
+          </label>
+          <span class="theme-toggle-icon"><i class="fas fa-moon"></i></span>
+        </div>
+        <div class="mobile-menu-btn">
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
+      </div>
+    </header>
+
+    <section class="hero">
+      <div class="container">
+        <div class="hero-content">
+          <h2 class="animate-text">CHUA&NGỌT</h2>
+          <p class="animate-text delay-1" style="font-size: 25px">
+            Từ những nguyên liệu tự nhiên, tạo nên hương vị tuyệt hảo!
+          </p>
+          <a href="products.html" class="btn animate-text delay-2"
+            >Khám Phá Ngay!</a
+          >
+        </div>
+      </div>
+      <!-- Yogurt bubbles decoration -->
+      <div
+        class="yogurt-bubble"
+        style="width: 50px; height: 50px; top: 20%; left: 10%"
+      ></div>
+      <div
+        class="yogurt-bubble"
+        style="
+          width: 30px;
+          height: 30px;
+          top: 30%;
+          left: 20%;
+          animation-delay: 1s;
+        "
+      ></div>
+      <div
+        class="yogurt-bubble"
+        style="
+          width: 40px;
+          height: 40px;
+          top: 15%;
+          right: 15%;
+          animation-delay: 2s;
+        "
+      ></div>
+      <div
+        class="yogurt-bubble"
+        style="
+          width: 25px;
+          height: 25px;
+          top: 40%;
+          right: 25%;
+          animation-delay: 3s;
+        "
+      ></div>
+    </section>
+
+    <section class="featured-products">
+      <div class="container">
+        <h2 class="section-title">Sản Phẩm Nổi Bật</h2>
+        <div class="products-grid">
+          <div class="product-card" data-aos="fade-up">
+            <div class="product-image">
+              <img
+                src="img/sp/suachuaan/Thiết kế chưa có tên (3).png"
+                alt="Sữa chua thanh long"
+              />
+            </div>
+            <div class="product-info">
+              <h3>Sữa Chua Thanh Long</h3>
+              <p class="price">20.000đ</p>
+              <p class="description">
+                Sữa chua thanh long lạ miệng, vị ngọt thanh nhẹ, giàu chất xơ và vitamin.
+              </p>
+              <a href="product-detail.html?id=1" class="btn-secondary"
+                >Xem Chi Tiết</a
+              >
+            </div>
+          </div>
+          <div class="product-card" data-aos="fade-up" data-aos-delay="100">
+            <div class="product-image">
+              <img
+                src="img/sp/suachuaan/Screenshot 2025-05-17 014034.png"
+                alt="Sữa chua xoài"
+              />
+            </div>
+            <div class="product-info">
+              <h3>Sữa Chua Xoài</h3>
+              <p class="price">20.000đ</p>
+              <p class="description">
+                Sữa chua xoài thơm ngọt, hương vị nhiệt đới.
+              </p>
+              <a href="product-detail.html?id=3" class="btn-secondary"
+                >Xem Chi Tiết</a
+              >
+            </div>
+          </div>
+          <div class="product-card" data-aos="fade-up" data-aos-delay="200">
+            <div class="product-image">
+              <img
+                src="img/sp/suachuatui/b28714fa3650c68e4b413dc49978b614.jpg"
+                alt="Sữa chua túi vị cam"
+              />
+            </div>
+            <div class="product-info">
+              <h3>Sữa Chua Túi Vị Cam</h3>
+              <p class="price">5.000đ</p>
+              <p class="description">
+                Sữa chua cam tươi mát, vị chua ngọt hài hòa trong từng túi nhỏ.
+              </p>
+              <a href="product-detail.html?id=7" class="btn-secondary"
+                >Xem Chi Tiết</a
+              >
+            </div>
+          </div>
+          <div class="product-card" data-aos="fade-up" data-aos-delay="300">
+            <div class="product-image">
+              <img
+                src="img/sp/suachuauong/sua-chua-dau-tay-1.webp"
+                alt="Sữa Chua Uống Vị Dâu"
+              />
+            </div>
+            <div class="product-info">
+              <h3>Sữa Chua Uống Vị Dâu</h3>
+              <p class="price">15.000đ</p>
+              <p class="description">
+                Sữa chua uống vị dâu thơm ngon, vị ngọt thanh hấp dẫn.
+              </p>
+              <a href="product-detail.html?id=10" class="btn-secondary"
+                >Xem Chi Tiết</a
+              >
+            </div>
+          </div>
+        </div>
+        <div class="view-all">
+          <a href="products.html" class="btn">Xem Tất Cả Sản Phẩm</a>
+        </div>
+      </div>
+      <!-- Yogurt bubbles decoration -->
+      <div
+        class="yogurt-bubble"
+        style="
+          width: 35px;
+          height: 35px;
+          bottom: 20%;
+          left: 5%;
+          animation-delay: 1.5s;
+        "
+      ></div>
+      <div
+        class="yogurt-bubble"
+        style="
+          width: 45px;
+          height: 45px;
+          bottom: 10%;
+          right: 10%;
+          animation-delay: 2.5s;
+        "
+      ></div>
+    </section>
+
+    <section class="benefits">
+      <div class="container">
+        <h2 class="section-title">Lợi Ích Của Sữa Chua</h2>
+        <div class="benefits-grid">
+          <div class="benefit-card" data-aos="zoom-in">
+            <div class="benefit-icon">
+              <i class="fas fa-bacteria"></i>
+            </div>
+            <h3>Lợi Khuẩn Tốt</h3>
+            <p>
+              Chứa các lợi khuẩn probiotic giúp cân bằng hệ vi sinh đường ruột.
+            </p>
+          </div>
+          <div class="benefit-card" data-aos="zoom-in" data-aos-delay="100">
+            <div class="benefit-icon">
+              <i class="fas fa-bone"></i>
+            </div>
+            <h3>Tốt Cho Xương</h3>
+            <p>
+              Giàu canxi và vitamin D, giúp xương chắc khỏe và ngăn ngừa loãng
+              xương.
+            </p>
+          </div>
+          <div class="benefit-card" data-aos="zoom-in" data-aos-delay="200">
+            <div class="benefit-icon">
+              <i class="fas fa-heartbeat"></i>
+            </div>
+            <h3>Tốt Cho Tim Mạch</h3>
+            <p>
+              Giúp giảm cholesterol xấu và huyết áp, bảo vệ sức khỏe tim mạch.
+            </p>
+          </div>
+          <div class="benefit-card" data-aos="zoom-in" data-aos-delay="300">
+            <div class="benefit-icon">
+              <i class="fas fa-weight"></i>
+            </div>
+            <h3>Hỗ Trợ Giảm Cân</h3>
+            <p>
+              Protein trong sữa chua giúp tạo cảm giác no lâu, hỗ trợ kiểm soát
+              cân nặng.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="testimonials">
+      <div class="container">
+        <h2 class="section-title">Khách Hàng Nói Gì Về Bên Mình?</h2>
+        <div class="testimonial-slider">
+          <div class="testimonial-slide active">
+            <div class="testimonial-content">
+              <div class="testimonial-image">
+                <img
+                  src="img/what-kh-said/aaa.jpg"
+                  alt="Khách hàng 1"
+                />
+              </div>
+              <p class="testimonial-text">
+                "Sữa chua ở đây thực sự rất ngon và tự nhiên. Tôi đã thử nhiều
+                loại sữa chua khác nhau nhưng chưa có loại nào ngon như ở đây.
+                Đặc biệt là sữa chua mít, thật tuyệt vời!"
+              </p>
+              <div class="testimonial-author">
+                <h4>Nguyễn Thị Hương</h4>
+                <div class="rating">
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="testimonial-slide">
+            <div class="testimonial-content">
+              <div class="testimonial-image">
+                <img
+                  src="img/what-kh-said/tải xuống (1).jpg"
+                  alt="Khách hàng 2"
+                />
+              </div>
+              <p class="testimonial-text">
+                "Tôi rất thích sữa chua ở đây vì hương vị tự nhiên và không quá
+                ngọt. Đặc biệt là dịch vụ giao hàng rất nhanh và nhân viên rất
+                thân thiện. Sẽ tiếp tục ủng hộ!"
+              </p>
+              <div class="testimonial-author">
+                <h4>Trần Văn Minh</h4>
+                <div class="rating">
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="testimonial-slide">
+            <div class="testimonial-content">
+              <div class="testimonial-image">
+                <img
+                  src="img/what-kh-said/bbbb.jpg"
+                  alt="Khách hàng 3"
+                />
+              </div>
+              <p class="testimonial-text">
+                "Sữa chua ở đây không chỉ ngon mà còn rất tốt cho sức khỏe. Từ
+                khi sử dụng sữa chua này, hệ tiêu hóa của tôi đã cải thiện rõ
+                rệt. Cảm ơn vì đã làm ra sản phẩm tuyệt vời như vậy!"
+              </p>
+              <div class="testimonial-author">
+                <h4>Lê Thị Mai</h4>
+                <div class="rating">
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="testimonial-controls">
+          <button class="prev-btn"><i class="fas fa-chevron-left"></i></button>
+          <div class="testimonial-dots">
+            <span class="dot active" data-index="0"></span>
+            <span class="dot" data-index="1"></span>
+            <span class="dot" data-index="2"></span>
+          </div>
+          <button class="next-btn"><i class="fas fa-chevron-right"></i></button>
+        </div>
+      </div>
+      <!-- Yogurt bubbles decoration -->
+      <div
+        class="yogurt-bubble"
+        style="
+          width: 40px;
+          height: 40px;
+          top: 30%;
+          right: 5%;
+          animation-delay: 0.5s;
+        "
+      ></div>
+      <div
+        class="yogurt-bubble"
+        style="
+          width: 25px;
+          height: 25px;
+          bottom: 20%;
+          left: 15%;
+          animation-delay: 1.8s;
+        "
+      ></div>
+    </section>
+
+    <section class="faq">
+      <div class="container">
+        <h2 class="section-title">Câu Hỏi Thường Gặp</h2>
+        <div class="faq-container">
+          <div class="faq-item" data-aos="fade-right">
+            <div class="faq-question">
+              <h3>Sữa chua có thể bảo quản được bao lâu?</h3>
+              <span class="faq-toggle"><i class="fas fa-plus"></i></span>
+            </div>
+            <div class="faq-answer">
+              <p>
+                Sữa chua ngon nhất khi dùng trong vòng 7-10 ngày kể từ ngày sản xuất. 
+                Bạn nhớ bảo quản trong ngăn mát tủ lạnh để giữ trọn hương vị và lợi khuẩn nhé!
+              </p>
+            </div>
+          </div>
+          <div class="faq-item" data-aos="fade-right" data-aos-delay="100">
+            <div class="faq-question">
+              <h3>Sữa chua có bị chua gắt không?</h3>
+              <span class="faq-toggle"><i class="fas fa-plus"></i></span>
+            </div>
+            <div class="faq-answer">
+              <p>
+                Không đâu! Sữa chua bên mình được lên men vừa phải nên có vị chua nhẹ, thanh mát, 
+                dễ ăn cả với trẻ nhỏ và người lớn.
+              </p>
+            </div>
+          </div>
+          <div class="faq-item" data-aos="fade-right" data-aos-delay="200">
+            <div class="faq-question">
+              <h3>Làm thế nào để đặt hàng?</h3>
+              <span class="faq-toggle"><i class="fas fa-plus"></i></span>
+            </div>
+            <div class="faq-answer">
+              <p>
+                Bạn có thể đặt hàng bằng cách gọi điện thoại hoặc nhắn tin qua
+                Zalo theo số 0382092008. Bên mình sẽ xác nhận đơn hàng và giao
+                hàng đến địa chỉ của bạn trong vòng 24 giờ.
+              </p>
+            </div>
+          </div>
+          <div class="faq-item" data-aos="fade-right" data-aos-delay="300">
+            <div class="faq-question">
+              <h3>Có phí vận chuyển không?</h3>
+              <span class="faq-toggle"><i class="fas fa-plus"></i></span>
+            </div>
+            <div class="faq-answer">
+              <p>
+                Đơn hàng sẽ được miễn phí vận chuyển trong phạm vi
+                5km tính từ cửa hàng (464 Quang Trung, Hà Đông). Đối với đơn hàng khoảng cách xa hơn, phí
+                vận chuyển sẽ được tính dựa trên khoảng cách giao hàng.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="contact-cta">
+      <div class="container">
+        <div class="cta-content" data-aos="fade-up">
+          <h2>Đặt Hàng Ngay Hôm Nay</h2>
+          <p>Gọi điện hoặc nhắn tin qua Zalo để đặt hàng và nhận tư vấn</p>
+          <a href="tel:0382092008" class="btn-phone">
+            <i class="fas fa-phone-alt"></i> 0382092008
+          </a>
+          <a href="https://zalo.me/0382092008" class="btn-zalo" target="_blank">
+            <i class="fas fa-comment"></i> Zalo
+          </a>
+        </div>
+      </div>
+      <!-- Yogurt bubbles decoration -->
+      <div
+        class="yogurt-bubble"
+        style="
+          width: 50px;
+          height: 50px;
+          bottom: 15%;
+          right: 20%;
+          animation-delay: 1.2s;
+        "
+      ></div>
+      <div
+        class="yogurt-bubble"
+        style="
+          width: 35px;
+          height: 35px;
+          top: 25%;
+          left: 25%;
+          animation-delay: 2.2s;
+        "
+      ></div>
+    </section>
+
+    <footer>
+      <div class="container">
+        <div class="footer-content">
+          <div class="footer-logo">
+            <h2>
+              <span class="chua">Chua</span>&<span class="ngot">Ngọt</span>
+            </h2>
+            <p>Chua vừa, Ngọt đủ!</p>
+          </div>
+          <div class="footer-links">
+            <h3>Liên Kết</h3>
+            <ul>
+              <li><a href="index.html">Trang Chủ</a></li>
+              <li><a href="about.html">Giới Thiệu</a></li>
+              <li><a href="products.html">Sản Phẩm</a></li>
+              <li><a href="feedback.html">Đánh Giá</a></li>
+            </ul>
+          </div>
+          <div class="footer-contact">
+            <h3>Liên Hệ</h3>
+            <p>
+              <i class="fas fa-map-marker-alt"></i> 464 Quang Trung, Hà Đông, Hà
+              Nội
+            </p>
+            <p><i class="fas fa-phone"></i> 0382092008</p>
+            <p><i class="fas fa-envelope"></i> ngotvachua@gmail.com</p>
+          </div>
+          <div class="footer-social">
+            <h3>Kết Nối</h3>
+            <div class="social-icons">
+              <a
+                href="https://www.facebook.com/profile.php?id=61576622030774"
+                target="_blank"
+                ><i class="fab fa-facebook"></i
+              ></a>
+              <a href="https://www.tiktok.com/@chuavuangotdu" target="_blank"
+                ><i class="fab fa-tiktok"></i
+              ></a>
+              <a href="https://www.instagram.com/chua_va_ngot" target="_blank"
+                ><i class="fab fa-instagram"></i
+              ></a>
+              <a href="https://zalo.me/0382092008" target="_blank"
+                ><i class="fas fa-comment"></i
+              ></a>
+            </div>
+          </div>
+        </div>
+        <div class="footer-bottom">
+          <p>&copy; 2025 Chua&Ngọt.</p>
+        </div>
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fas fa-arrow-up"></i>
+    </div>
+
+    <script src="script.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@studio-freight/lenis@latest/bundled/lenis.min.js"></script>
+
+  </body>
+</html>

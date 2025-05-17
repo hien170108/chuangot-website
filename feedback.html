@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="vi">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Đánh Giá - Chua&Ngọt</title>
+    <link rel="stylesheet" href="styles.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+    />
+    <link rel="icon" type="image/x-icon" href="img/favicon.png" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Playwrite+DK+Loopet:wght@100..400&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <header>
+      <div class="container">
+        <div class="logo">
+          <a href="index.html">
+            <img src="img/favicon.png" alt="Chua&Ngọt Logo" class="logo-img" />
+            <h1>
+              <span class="chua">Chua</span>&<span class="ngot">Ngọt</span>
+            </h1>
+          </a>
+        </div>
+        <nav>
+          <ul class="menu">
+            <li><a href="index.html">Trang Chủ</a></li>
+            <li><a href="about.html">Giới Thiệu</a></li>
+            <li><a href="products.html">Sản Phẩm</a></li>
+            <li><a href="feedback.html" class="active">Đánh Giá</a></li>
+            
+          </ul>
+        </nav>
+        <div class="theme-toggle">
+          <span class="theme-toggle-icon"><i class="fas fa-sun"></i></span>
+          <label class="theme-toggle-label">
+            <input
+              type="checkbox"
+              class="theme-toggle-checkbox"
+              id="theme-toggle"
+            />
+            <span class="theme-toggle-slider"></span>
+          </label>
+          <span class="theme-toggle-icon"><i class="fas fa-moon"></i></span>
+        </div>
+        <div class="mobile-menu-btn">
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
+      </div>
+    </header>
+
+    <section class="page-banner">
+      <div class="container">
+        <h1 class="animate-text">Đánh Giá Sản Phẩm</h1>
+        <p class="animate-text">Chia sẻ trải nghiệm của bạn với bên mình</p>
+      </div>
+    </section>
+
+    <section class="feedback-form">
+      <div class="container">
+        <div class="form-container">
+          <h2>Gửi Đánh Giá Của Bạn</h2>
+          <!-- Cập nhật form trong feedback.html -->
+          <form
+            id="feedbackForm"
+            action="https://docs.google.com/forms/d/e/1FAIpQLSficFwz1s2GnUcDyCxJRRlBY6WKCNZUaU6W7LFjJMFg4rA3RA/formResponse"
+            method="POST"
+            target="hidden_iframe"
+          >
+            <div class="form-group">
+              <label for="name">Họ tên <span class="required">*</span></label>
+              <input
+                type="text"
+                id="name"
+                name="entry.397215572"
+                placeholder="Nhập họ tên của bạn"
+                required
+              />
+              <p class="error-message" id="nameError"></p>
+            </div>
+            <div class="form-group">
+              <label for="email">Email <span class="required">*</span></label>
+              <input
+                type="email"
+                id="email"
+                name="entry.533685168"
+                placeholder="Nhập email của bạn"
+                required
+              />
+              <p class="error-message" id="emailError"></p>
+            </div>
+            <div class="form-group">
+              <label for="product"
+                >Sản phẩm <span class="required">*</span></label
+              >
+              <select id="product" name="entry.758230964" required>
+                <option value="">Chọn sản phẩm</option>
+                <option value="Sữa Chua Dâu">Sữa Chua Dâu</option>
+                <option value="Sữa Chua Việt Quất">Sữa Chua Việt Quất</option>
+                <option value="Sữa Chua Xoài">Sữa Chua Xoài</option>
+                <option value="Sữa Chua Truyền Thống">
+                  Sữa Chua Truyền Thống
+                </option>
+                <option value="Sữa Chua Kiwi">Sữa Chua Kiwi</option>
+                <option value="Sữa Chua Dừa">Sữa Chua Dừa</option>
+                <option value="Sữa Chua Nha Đam">Sữa Chua Nha Đam</option>
+                <option value="Sữa Chua Táo Quế">Sữa Chua Táo Quế</option>
+              </select>
+              <p class="error-message" id="productError"></p>
+            </div>
+            <div class="form-group">
+              <label>Đánh giá <span class="required">*</span></label>
+              <div class="rating">
+                <input
+                  type="radio"
+                  id="star-5"
+                  name="entry.1053322840"
+                  value="5"
+                  required
+                />
+                <label for="star-5">
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                    <path
+                      pathLength="360"
+                      d="M12,17.27L18.18,21L16.54,13.97L22,9.24L14.81,8.62L12,2L9.19,8.62L2,9.24L7.45,13.97L5.82,21L12,17.27Z"
+                    ></path>
+                  </svg>
+                </label>
+                <input
+                  type="radio"
+                  id="star-4"
+                  name="entry.1053322840"
+                  value="4"
+                />
+                <label for="star-4">
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                    <path
+                      pathLength="360"
+                      d="M12,17.27L18.18,21L16.54,13.97L22,9.24L14.81,8.62L12,2L9.19,8.62L2,9.24L7.45,13.97L5.82,21L12,17.27Z"
+                    ></path>
+                  </svg>
+                </label>
+                <input
+                  type="radio"
+                  id="star-3"
+                  name="entry.1053322840"
+                  value="3"
+                />
+                <label for="star-3">
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                    <path
+                      pathLength="360"
+                      d="M12,17.27L18.18,21L16.54,13.97L22,9.24L14.81,8.62L12,2L9.19,8.62L2,9.24L7.45,13.97L5.82,21L12,17.27Z"
+                    ></path>
+                  </svg>
+                </label>
+                <input
+                  type="radio"
+                  id="star-2"
+                  name="entry.1053322840"
+                  value="2"
+                />
+                <label for="star-2">
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                    <path
+                      pathLength="360"
+                      d="M12,17.27L18.18,21L16.54,13.97L22,9.24L14.81,8.62L12,2L9.19,8.62L2,9.24L7.45,13.97L5.82,21L12,17.27Z"
+                    ></path>
+                  </svg>
+                </label>
+                <input
+                  type="radio"
+                  id="star-1"
+                  name="entry.1053322840"
+                  value="1"
+                />
+                <label for="star-1">
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                    <path
+                      pathLength="360"
+                      d="M12,17.27L18.18,21L16.54,13.97L22,9.24L14.81,8.62L12,2L9.19,8.62L2,9.24L7.45,13.97L5.82,21L12,17.27Z"
+                    ></path>
+                  </svg>
+                </label>
+              </div>
+              <p class="error-message" id="ratingError"></p>
+            </div>
+            <div class="form-group">
+              <label for="feedback"
+                >Nội dung đánh giá <span class="required">*</span></label
+              >
+              <textarea
+                id="feedback"
+                name="entry.183782886"
+                rows="5"
+                placeholder="Chia sẻ trải nghiệm của bạn về sản phẩm"
+                required
+              ></textarea>
+              <p class="error-message" id="feedbackError"></p>
+            </div>
+
+            <!-- Các trường ẩn cần thiết -->
+            <input type="hidden" name="fvv" value="1" />
+            <input type="hidden" name="fbzx" value="-7309038878999572635" />
+            <input type="hidden" name="pageHistory" value="0" />
+
+            <button type="submit" class="btn-submit" id="submitBtn">
+              Gửi Đánh Giá
+            </button>
+          </form>
+
+          <!-- Thêm iframe ẩn để nhận phản hồi từ Google Forms -->
+          <iframe
+            name="hidden_iframe"
+            id="hidden_iframe"
+            style="display: none"
+          ></iframe>
+
+          <!-- Thông báo thành công -->
+          <div class="form-success" id="formSuccess">
+            <i class="fas fa-check-circle"></i>
+            <h3>Cảm ơn bạn đã gửi đánh giá!</h3>
+            <p>Bên mình rất trân trọng những ý kiến đóng góp của bạn.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <footer>
+      <div class="container">
+        <div class="footer-content">
+          <div class="footer-logo">
+            <h2>
+              <span class="chua">Chua</span>&<span class="ngot">Ngọt</span>
+            </h2>
+            <p>Chua vừa, Ngọt đủ!</p>
+          </div>
+          <div class="footer-links">
+            <h3>Liên Kết</h3>
+            <ul>
+              <li><a href="index.html">Trang Chủ</a></li>
+              <li><a href="about.html">Giới Thiệu</a></li>
+              <li><a href="products.html">Sản Phẩm</a></li>
+              <li><a href="feedback.html">Đánh Giá</a></li>
+            </ul>
+          </div>
+          <div class="footer-contact">
+            <h3>Liên Hệ</h3>
+            <p>
+              <i class="fas fa-map-marker-alt"></i> 464 Quang Trung, Hà Đông, Hà
+              Nội
+            </p>
+            <p><i class="fas fa-phone"></i> 0382092008</p>
+            <p><i class="fas fa-envelope"></i> ngotvachua@gmail.com</p>
+          </div>
+          <div class="footer-social">
+            <h3>Kết Nối</h3>
+            <div class="social-icons">
+              <a
+                href="https://www.facebook.com/profile.php?id=61576622030774"
+                target="_blank"
+                ><i class="fab fa-facebook"></i
+              ></a>
+              <a href="https://www.tiktok.com/@chuavuangotdu" target="_blank"
+                ><i class="fab fa-tiktok"></i
+              ></a>
+              <a href="https://www.instagram.com/chua_va_ngot" target="_blank"
+                ><i class="fab fa-instagram"></i
+              ></a>
+              <a href="https://zalo.me/0382092008" target="_blank"
+                ><i class="fas fa-comment"></i
+              ></a>
+            </div>
+          </div>
+        </div>
+        <div class="footer-bottom">
+          <p>&copy; 2025 Chua&Ngọt.</p>
+        </div>
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fas fa-arrow-up"></i>
+    </div>
+
+    <script src="script.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@studio-freight/lenis@latest/bundled/lenis.min.js"></script>
+  </body>
+</html>
