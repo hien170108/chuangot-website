@@ -658,14 +658,4 @@ document.addEventListener("DOMContentLoaded", () => {
 
   // Call the function to add bubbles
   createYogurtBubbles();
-
-  // Smooth Scrolling lenis
-  const lenis = new Lenis();
-
-  function raf(time) {
-    lenis.raf(time);
-    requestAnimationFrame(raf);
-  }
-
-  requestAnimationFrame(raf);
 });
