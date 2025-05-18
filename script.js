@@ -128,33 +128,26 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   });
 
-  // Back to Top Button
-  const backToTopBtn = document.querySelector(".back-to-top");
+const backToTopBtn = document.querySelector(".back-to-top");
 
-  window.addEventListener("scroll", () => {
-    if (window.pageYOffset > 300) {
-      backToTopBtn.classList.add("active");
-    } else {
-      backToTopBtn.classList.remove("active");
-    }
-  });
-
-  function scrollToTopSmooth() {
-    const currentScroll =
-      document.documentElement.scrollTop || document.body.scrollTop;
-    if (currentScroll > 0) {
-      window.requestAnimationFrame(scrollToTopSmooth);
-      // Chỉnh hệ số chia từ 8 → 12 để cuộn chậm hơn
-      window.scrollTo(0, currentScroll - currentScroll / 12);
-    }
+window.addEventListener("scroll", () => {
+  if (window.pageYOffset > 300) {
+    backToTopBtn.classList.add("active");
+  } else {
+    backToTopBtn.classList.remove("active");
   }
+});
 
-  if (backToTopBtn) {
-    backToTopBtn.addEventListener("click", (e) => {
-      e.preventDefault();
-      scrollToTopSmooth();
+if (backToTopBtn) {
+  backToTopBtn.addEventListener("click", (e) => {
+    e.preventDefault();
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth" // Nhẹ, dùng trình duyệt xử lý
     });
-  }
+  });
+}
+
 
   // Form Validation và Gửi dữ liệu đến Google Forms
   const feedbackForm = document.getElementById("feedbackForm");
