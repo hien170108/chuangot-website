@@ -651,4 +651,104 @@ if (backToTopBtn) {
 
   // Call the function to add bubbles
   createYogurtBubbles();
+
+  // Trang chủ: Sản phẩm nổi bật
+  function loadFeaturedProducts() {
+    const grid = document.getElementById('featuredProductsGrid');
+    if (!grid) return;
+    fetch('api/products.php')
+      .then(res => res.json())
+      .then(data => {
+        grid.innerHTML = '';
+        if (data.status && data.data && data.data.length > 0) {
+          const featured = data.data.filter(p => p.featured == 1 || p.featured === "1");
+          if (featured.length === 0) {
+            grid.innerHTML = '<div class="no-products">Hiện tại không có sản phẩm</div>';
+            return;
+          }
+          featured.forEach(product => {
+            const div = document.createElement('div');
+            div.className = 'product-card';
+            div.innerHTML = `
+              <div class="product-image">
+                <img src="${product.image}" alt="${product.name}">
+              </div>
+              <div class="product-info">
+                <h3>${product.name}</h3>
+                <p class="price">${product.price}</p>
+                <p class="description">${product.description}</p>
+                <a href="product-detail.html?id=${product.id}" class="btn-secondary">Xem Chi Tiết</a>
+              </div>
+            `;
+            grid.appendChild(div);
+          });
+        } else {
+          grid.innerHTML = '<div class="no-products">Hiện tại không có sản phẩm</div>';
+        }
+      })
+      .catch(() => {
+        grid.innerHTML = '<div class="no-products">Hiện tại không có sản phẩm</div>';
+      });
+  }
+
+  // Trang sản phẩm: Danh sách sản phẩm và filter
+  function loadAllProducts(category = "all") {
+    const container = document.getElementById("productsContainer");
+    if (!container) return;
+    let url = "api/products.php";
+    if (category && category !== "all") {
+      url += "?category=" + encodeURIComponent(category);
+    }
+    fetch(url)
+      .then(res => res.json())
+      .then(data => {
+        container.innerHTML = "";
+        if (data.status && data.data && data.data.length > 0) {
+          data.data.forEach(product => {
+            const el = document.createElement("div");
+            el.className = "product-card";
+            el.setAttribute("data-aos", "fade-up");
+            el.setAttribute("data-category", product.category);
+            el.innerHTML = `
+              <div class="product-image">
+                <img src="${product.image}" alt="${product.name}">
+              </div>
+              <div class="product-info">
+                <h3>${product.name}</h3>
+                <p class="price">${product.price}</p>
+                <p class="description">${product.description}</p>
+                <a href="product-detail.html?id=${product.id}" class="btn-secondary">Xem Chi Tiết</a>
+              </div>
+            `;
+            container.appendChild(el);
+          });
+        } else {
+          container.innerHTML = '<div class="no-products">Hiện tại không có sản phẩm</div>';
+        }
+      })
+      .catch(() => {
+        container.innerHTML = '<div class="no-products">Hiện tại không có sản phẩm</div>';
+      });
+  }
+
+  // Filter buttons trên trang products.html
+  document.addEventListener("DOMContentLoaded", function() {
+    // Trang chủ
+    if (document.getElementById('featuredProductsGrid')) {
+      loadFeaturedProducts();
+    }
+    // Trang sản phẩm
+    if (document.getElementById("productsContainer")) {
+      loadAllProducts();
+      document.querySelectorAll(".filter-btn").forEach(btn => {
+        btn.addEventListener("click", function() {
+          document.querySelectorAll(".filter-btn").forEach(b => b.classList.remove("active"));
+          btn.classList.add("active");
+          const category = btn.getAttribute("data-filter");
+          loadAllProducts(category);
+        });
+      });
+    }
+    // ...other code (FAQ, back-to-top, etc.)...
+  });
 });

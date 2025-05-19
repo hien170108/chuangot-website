@@ -145,6 +145,122 @@
       <i class="fas fa-arrow-up"></i>
     </div>
 
+    <script>
+      function getQueryParam(name) {
+        const url = new URL(window.location.href);
+        return url.searchParams.get(name);
+      }
+      function renderProductDetail(product) {
+        document.getElementById("productDetail").innerHTML = `
+          <div class="product-detail-image">
+            <img src="${product.image}" alt="${product.name}">
+          </div>
+          <div class="product-detail-info">
+            <h1>${product.name}</h1>
+            <p class="product-detail-price">${product.price}</p>
+            <div class="product-detail-desc">
+              <p>${product.description}</p>
+              <p>${product.longDescription || ""}</p>
+            </div>
+            <div class="product-detail-meta">
+              <div class="meta-item"><span class="meta-label">Danh mục:</span> <span>${product.categoryName || ""}</span></div>
+              <div class="meta-item"><span class="meta-label">Khối lượng:</span> <span>150g</span></div>
+              <div class="meta-item"><span class="meta-label">Hạn sử dụng:</span> <span>7 ngày kể từ ngày mua</span></div>
+              <div class="meta-item"><span class="meta-label">Bảo quản:</span> <span>2-5°C</span></div>
+            </div>
+            <div class="contact-buttons">
+              <a href="tel:0382092008" class="btn-phone"><i class="fas fa-phone-alt"></i> Gọi Đặt Hàng: 0382092008</a>
+              <a href="https://zalo.me/0382092008" class="btn-zalo" target="_blank"><i class="fas fa-comment"></i> Zalo</a>
+            </div>
+          </div>
+        `;
+        // Render mô tả
+        document.getElementById("productDescription").innerHTML = `
+          <h2>Mô Tả Sản Phẩm</h2>
+          <div class="description-content">
+            <p>${product.longDescription || product.description}</p>
+          </div>
+        `;
+        // Render nutrition
+        const n = product.nutrition || {};
+        document.getElementById("productNutrition").innerHTML = `
+          <h2>Thông Tin Dinh Dưỡng</h2>
+          <table class="nutrition-table">
+            <thead>
+              <tr>
+                <th>Thành phần</th>
+                <th>Lượng (trên 100g)</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr><td>Calo</td><td>${n.calories || ""}</td></tr>
+              <tr><td>Chất béo</td><td>${n.fat || ""}</td></tr>
+              <tr><td>Chất béo bão hòa</td><td>${n.saturatedFat || ""}</td></tr>
+              <tr><td>Cholesterol</td><td>${n.cholesterol || ""}</td></tr>
+              <tr><td>Natri</td><td>${n.sodium || ""}</td></tr>
+              <tr><td>Carbohydrate</td><td>${n.carbs || ""}</td></tr>
+              <tr><td>Đường</td><td>${n.sugar || ""}</td></tr>
+              <tr><td>Protein</td><td>${n.protein || ""}</td></tr>
+              <tr><td>Canxi</td><td>${n.calcium || ""}</td></tr>
+              <tr><td>Vitamin D</td><td>${n.vitaminD || ""}</td></tr>
+            </tbody>
+          </table>
+        `;
+      }
+      function renderRelatedProducts(currentId, category) {
+        fetch("api/products.php?category=" + encodeURIComponent(category))
+          .then(res => res.json())
+          .then(data => {
+            if (data.status && data.data) {
+              const related = data.data.filter(p => p.id != currentId).slice(0, 4);
+              const container = document.getElementById("relatedProducts");
+              container.innerHTML = "";
+              related.forEach(product => {
+                const el = document.createElement("div");
+                el.className = "product-card";
+                el.innerHTML = `
+                  <div class="product-image">
+                    <img src="${product.image}" alt="${product.name}">
+                  </div>
+                  <div class="product-info">
+                    <h3>${product.name}</h3>
+                    <p class="price">${product.price}</p>
+                    <a href="product-detail.html?id=${product.id}" class="btn-secondary">Xem Chi Tiết</a>
+                  </div>
+                `;
+                container.appendChild(el);
+              });
+            }
+          });
+      }
+      document.addEventListener("DOMContentLoaded", function() {
+        const id = getQueryParam("id");
+        if (!id) return;
+        fetch("api/products.php?id=" + id)
+          .then(res => res.json())
+          .then(data => {
+            if (data.status && data.data && data.data.length > 0) {
+              const product = data.data[0];
+              document.title = `${product.name} - Chua&Ngọt`;
+              const productName = document.getElementById("productName");
+              if (productName) productName.textContent = product.name;
+              renderProductDetail(product);
+              renderRelatedProducts(product.id, product.category);
+            } else {
+              document.getElementById("productDetail").innerHTML = `
+                <div class="product-not-found">
+                  <h2>Không tìm thấy sản phẩm</h2>
+                  <p>Sản phẩm bạn đang tìm kiếm không tồn tại hoặc đã bị xóa.</p>
+                  <a href="products.html" class="btn">Quay lại trang sản phẩm</a>
+                </div>
+              `;
+              document.getElementById("productDescription").style.display = "none";
+              document.getElementById("productNutrition").style.display = "none";
+              document.querySelector(".related-products").style.display = "none";
+            }
+          });
+      });
+    </script>
     <script src="script.js"></script>
 </body>
 </html>

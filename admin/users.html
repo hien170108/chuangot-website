@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quản Lý Người Dùng - Chua&Ngọt Admin</title>
+    <link rel="stylesheet" href="../styles.css">
+    <link rel="stylesheet" href="admin.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="icon" type="image/x-icon" href="../img/favicon.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playwrite+DK+Loopet:wght@100..400&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="admin-container">
+        <!-- Sidebar -->
+        <div class="admin-sidebar">
+            <div class="admin-sidebar-header">
+                <h2><span class="chua">Chua</span>&<span class="ngot">Ngọt</span></h2>
+                <p>Hệ Thống Quản Trị</p>
+            </div>
+            <div class="admin-sidebar-menu">
+                <h3>Tổng Quan</h3>
+                <ul>
+                    <li><a href="dashboard.html"><i class="fas fa-tachometer-alt"></i> <span>Dashboard</span></a></li>
+                </ul>
+                <h3>Quản Lý</h3>
+                <ul>
+                    <li><a href="products.html"><i class="fas fa-box"></i> <span>Sản Phẩm</span></a></li>
+                    <li><a href="categories.html"><i class="fas fa-tags"></i> <span>Danh Mục</span></a></li>
+                    <li><a href="website.html"><i class="fas fa-palette"></i> <span>Giao Diện</span></a></li>
+                    <li><a href="users.html" class="active"><i class="fas fa-users"></i> <span>Người Dùng</span></a></li>
+                </ul>
+            </div>
+            <div class="admin-sidebar-footer">
+                <a href="feedback.html"><i class="fas fa-comments"></i> <span>Phản hồi</span></a>
+                <a href="#" id="logoutBtn"><i class="fas fa-sign-out-alt"></i> <span>Đăng Xuất</span></a>
+                <a href="../index.html" target="_blank"><i class="fas fa-external-link-alt"></i> <span>Xem Website</span></a>
+            </div>
+        </div>
+
+        <!-- Main Content -->
+        <div class="admin-content">
+            <div class="admin-header">
+                <h1>Quản Lý Người Dùng</h1>
+                <div class="admin-user-menu">
+                    <div class="admin-user-info" id="userMenuToggle">
+                        <div class="admin-user-avatar" id="userAvatar">A</div>
+                        <div class="admin-user-name" id="userName">Admin</div>
+                    </div>
+                    <div class="admin-user-dropdown" id="userDropdown">
+                        <a href="profile.html"><i class="fas fa-user"></i> Hồ sơ</a>
+                        <a href="settings.html"><i class="fas fa-cog"></i> Cài đặt</a>
+                        <a href="#" id="userLogoutBtn"><i class="fas fa-sign-out-alt"></i> Đăng xuất</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Users Management -->
+            <div class="admin-card">
+                <div class="admin-card-header">
+                    <h2>Danh Sách Người Dùng</h2>
+                    <button class="btn-primary" id="addUserBtn">
+                        <i class="fas fa-plus"></i> Thêm Người Dùng
+                    </button>
+                </div>
+                <div class="admin-card-body">
+                    <div class="admin-table-container">
+                        <table class="admin-table" id="usersTable">
+                            <thead>
+                                <tr>
+                                    <th>ID</th>
+                                    <th>Tên Đăng Nhập</th>
+                                    <th>Họ Tên</th>
+                                    <th>Email</th>
+                                    <th>Vai Trò</th>
+                                    <th>Thao Tác</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <!-- Dữ liệu sẽ được thêm vào bằng JavaScript -->
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Add/Edit User Modal -->
+    <div class="admin-modal-overlay" id="userModal">
+        <div class="admin-modal">
+            <div class="admin-modal-header">
+                <h2 id="userModalTitle">Thêm Người Dùng Mới</h2>
+                <button class="admin-modal-close" id="closeUserModal">&times;</button>
+            </div>
+            <div class="admin-modal-body">
+                <form id="userForm" class="admin-form">
+                    <input type="hidden" id="userId">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="username">Tên Đăng Nhập</label>
+                            <input type="text" id="username" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="fullName">Họ Tên</label>
+                            <input type="text" id="fullName" required>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email</label>
+                        <input type="email" id="email" required>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="password">Mật Khẩu</label>
+                            <input type="password" id="password">
+                            <small id="passwordNote">Để trống nếu không muốn thay đổi mật khẩu.</small>
+                        </div>
+                        <div class="form-group">
+                            <label for="role">Vai Trò</label>
+                            <select id="role" required>
+                                <option value="admin">Admin</option>
+                                <option value="editor">Editor</option>
+                                <option value="viewer">Viewer</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="btn-group">
+                        <button type="button" class="btn btn-secondary" id="cancelUserBtn">Hủy</button>
+                        <button type="submit" class="btn btn-primary">Lưu</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- Delete Confirmation Dialog -->
+    <div class="admin-confirm-dialog" id="deleteConfirmDialog">
+        <div class="admin-confirm-content">
+            <div class="admin-confirm-icon">
+                <i class="fas fa-trash"></i>
+            </div>
+            <h3 class="admin-confirm-title">Xác Nhận Xóa</h3>
+            <p class="admin-confirm-message">Bạn có chắc chắn muốn xóa người dùng này? Hành động này không thể hoàn tác.</p>
+            <div class="admin-confirm-buttons">
+                <button class="btn-cancel" id="cancelDeleteBtn">Hủy</button>
+                <button class="btn-confirm" id="confirmDeleteBtn">Xóa</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Toast Notifications Container -->
+    <div class="admin-toast-container" id="toastContainer"></div>
+
+    <!-- Loading Spinner -->
+    <div class="admin-loading" id="loadingSpinner">
+        <div class="admin-spinner"></div>
+    </div>
+
+    <script src="api.js"></script>
+    <script src="users.js"></script>
+</body>
+</html>

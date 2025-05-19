@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quản Lý Danh Mục - Chua&Ngọt Admin</title>
+    <link rel="stylesheet" href="../styles.css">
+    <link rel="stylesheet" href="admin.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="icon" type="image/x-icon" href="../img/favicon.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playwrite+DK+Loopet:wght@100..400&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="admin-container">
+        <!-- Sidebar -->
+        <div class="admin-sidebar">
+            <div class="admin-sidebar-header">
+                <h2><span class="chua">Chua</span>&<span class="ngot">Ngọt</span></h2>
+                <p>Hệ Thống Quản Trị</p>
+            </div>
+            <div class="admin-sidebar-menu">
+                <h3>Tổng Quan</h3>
+                <ul>
+                    <li><a href="dashboard.html"><i class="fas fa-tachometer-alt"></i> <span>Dashboard</span></a></li>
+                </ul>
+                <h3>Quản Lý</h3>
+                <ul>
+                    <li><a href="products.html"><i class="fas fa-box"></i> <span>Sản Phẩm</span></a></li>
+                    <li><a href="categories.html" class="active"><i class="fas fa-tags"></i> <span>Danh Mục</span></a></li>
+                    <li><a href="website.html"><i class="fas fa-palette"></i> <span>Giao Diện</span></a></li>
+                    <li><a href="users.html"><i class="fas fa-users"></i> <span>Người Dùng</span></a></li>
+                </ul>
+            </div>
+            <div class="admin-sidebar-footer">
+                <a href="feedback.html"><i class="fas fa-comments"></i> <span>Phản hồi</span></a>
+                <a href="#" id="logoutBtn"><i class="fas fa-sign-out-alt"></i> <span>Đăng Xuất</span></a>
+                <a href="../index.html" target="_blank"><i class="fas fa-external-link-alt"></i> <span>Xem Website</span></a>
+            </div>
+        </div>
+
+        <!-- Main Content -->
+        <div class="admin-content">
+            <div class="admin-header">
+                <h1>Quản Lý Danh Mục</h1>
+                <div class="admin-user-menu">
+                    <div class="admin-user-info" id="userMenuToggle">
+                        <div class="admin-user-avatar" id="userAvatar">A</div>
+                        <div class="admin-user-name" id="userName">Admin</div>
+                    </div>
+                    <div class="admin-user-dropdown" id="userDropdown">
+                        <a href="profile.html"><i class="fas fa-user"></i> Hồ sơ</a>
+                        <a href="settings.html"><i class="fas fa-cog"></i> Cài đặt</a>
+                        <a href="#" id="userLogoutBtn"><i class="fas fa-sign-out-alt"></i> Đăng xuất</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Categories Management -->
+            <div class="admin-card">
+                <div class="admin-card-header">
+                    <h2>Danh Sách Danh Mục</h2>
+                    <button class="btn-primary" id="addCategoryBtn">
+                        <i class="fas fa-plus"></i> Thêm Danh Mục
+                    </button>
+                </div>
+                <div class="admin-card-body">
+                    <div class="admin-table-container">
+                        <table class="admin-table" id="categoriesTable">
+                            <thead>
+                                <tr>
+                                    <th>ID</th>
+                                    <th>Tên Danh Mục</th>
+                                    <th>Mã Danh Mục</th>
+                                    <th>Mô Tả</th>
+                                    <th>Số Sản Phẩm</th>
+                                    <th>Thao Tác</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <!-- Dữ liệu sẽ được thêm vào bằng JavaScript -->
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Add/Edit Category Modal -->
+    <div class="admin-modal-overlay" id="categoryModal">
+        <div class="admin-modal">
+            <div class="admin-modal-header">
+                <h2 id="categoryModalTitle">Thêm Danh Mục Mới</h2>
+                <button class="admin-modal-close" id="closeCategoryModal">&times;</button>
+            </div>
+            <div class="admin-modal-body">
+                <form id="categoryForm" class="admin-form">
+                    <input type="hidden" id="categoryId">
+                    <div class="form-group">
+                        <label for="categoryName">Tên Danh Mục</label>
+                        <input type="text" id="categoryName" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="categoryCode">Mã Danh Mục</label>
+                        <input type="text" id="categoryCode" required>
+                        <small>Mã danh mục dùng để phân loại sản phẩm, ví dụ: fruit, traditional, special</small>
+                    </div>
+                    <div class="form-group">
+                        <label for="categoryDescription">Mô Tả</label>
+                        <textarea id="categoryDescription"></textarea>
+                    </div>
+                    <div class="btn-group">
+                        <button type="button" class="btn btn-secondary" id="cancelCategoryBtn">Hủy</button>
+                        <button type="submit" class="btn btn-primary">Lưu</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- Delete Confirmation Dialog -->
+    <div class="admin-confirm-dialog" id="deleteConfirmDialog">
+        <div class="admin-confirm-content">
+            <div class="admin-confirm-icon">
+                <i class="fas fa-trash"></i>
+            </div>
+            <h3 class="admin-confirm-title">Xác Nhận Xóa</h3>
+            <p class="admin-confirm-message">Bạn có chắc chắn muốn xóa danh mục này? Hành động này không thể hoàn tác.</p>
+            <div class="admin-confirm-buttons">
+                <button class="btn-cancel" id="cancelDeleteBtn">Hủy</button>
+                <button class="btn-confirm" id="confirmDeleteBtn">Xóa</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Toast Notifications Container -->
+    <div class="admin-toast-container" id="toastContainer"></div>
+
+    <!-- Loading Spinner -->
+    <div class="admin-loading" id="loadingSpinner">
+        <div class="admin-spinner"></div>
+    </div>
+
+    <script src="categories.js"></script>
+</body>
+</html>

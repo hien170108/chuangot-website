@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quản Lý Phản Hồi - Chua&Ngọt Admin</title>
+    <link rel="stylesheet" href="admin.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
+</head>
+<body>
+    <div class="admin-container">
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <h2>Chua&Ngọt Admin</h2>
+            </div>
+            <nav class="sidebar-nav">
+                <ul>
+                    <li><a href="index.html"><i class="fas fa-tachometer-alt"></i> Dashboard</a></li>
+                    <li><a href="products.html"><i class="fas fa-box"></i> Sản Phẩm</a></li>
+                    <li><a href="categories.html"><i class="fas fa-tags"></i> Danh Mục</a></li>
+                    <li><a href="users.html"><i class="fas fa-users"></i> Người Dùng</a></li>
+                    <li><a href="feedback.html" class="active"><i class="fas fa-comments"></i> Phản Hồi</a></li>
+                </ul>
+            </nav>
+        </aside>
+        <main class="main-content">
+            <header class="content-header">
+                <h1>Quản Lý Phản Hồi</h1>
+                <div class="user-info">
+                    <span class="user-name">Admin</span>
+                    <a href="#" class="logout-btn"><i class="fas fa-sign-out-alt"></i></a>
+                </div>
+            </header>
+            <div class="content-body">
+                <div class="card">
+                    <div class="card-header">
+                        <h2>Danh Sách Phản Hồi</h2>
+                        <div class="card-actions">
+                            <div class="search-box">
+                                <input type="text" id="searchInput" placeholder="Tìm kiếm...">
+                                <button id="searchBtn"><i class="fas fa-search"></i></button>
+                            </div>
+                            <button class="btn-export" id="exportBtn"><i class="fas fa-file-export"></i> Xuất Excel</button>
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        <div class="table-responsive">
+                            <table id="feedbackTable" class="data-table">
+                                <thead>
+                                    <tr>
+                                        <th>ID</th>
+                                        <th>Họ Tên</th>
+                                        <th>Email</th>
+                                        <th>Điện Thoại</th>
+                                        <th>Sản Phẩm</th>
+                                        <th>Đánh Giá</th>
+                                        <th>Nội Dung</th>
+                                        <th>Trạng Thái</th>
+                                        <th>Ngày Tạo</th>
+                                        <th>Thao Tác</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td colspan="10" class="text-center">Đang tải dữ liệu...</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        <div class="pagination">
+                            <button class="pagination-btn" id="prevPage" disabled><i class="fas fa-chevron-left"></i></button>
+                            <span class="pagination-info">Trang <span id="currentPage">1</span> / <span id="totalPages">1</span></span>
+                            <button class="pagination-btn" id="nextPage"><i class="fas fa-chevron-right"></i></button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <!-- View Feedback Modal -->
+    <div id="viewFeedbackModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>Chi Tiết Phản Hồi</h2>
+                <span class="close">&times;</span>
+            </div>
+            <div class="modal-body">
+                <div class="info-group">
+                    <label>Họ Tên:</label>
+                    <p id="viewName"></p>
+                </div>
+                <div class="info-group">
+                    <label>Email:</label>
+                    <p id="viewEmail"></p>
+                </div>
+                <div class="info-group">
+                    <label>Điện Thoại:</label>
+                    <p id="viewPhone"></p>
+                </div>
+                <div class="info-group">
+                    <label>Sản Phẩm:</label>
+                    <p id="viewProduct"></p>
+                </div>
+                <div class="info-group">
+                    <label>Đánh Giá:</label>
+                    <p id="viewRating"></p>
+                </div>
+                <div class="info-group">
+                    <label>Trạng Thái:</label>
+                    <p id="viewStatus"></p>
+                </div>
+                <div class="info-group">
+                    <label>Ngày Tạo:</label>
+                    <p id="viewCreatedAt"></p>
+                </div>
+                <div class="info-group">
+                    <label>Nội Dung Phản Hồi:</label>
+                    <div class="feedback-content" id="viewFeedback"></div>
+                </div>
+                <div class="info-group" id="viewReplySection">
+                    <label>Phản Hồi Của Admin:</label>
+                    <div class="feedback-content" id="viewReply"></div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button class="btn-secondary close-modal">Đóng</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Edit Feedback Modal -->
+    <div id="editFeedbackModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>Chỉnh Sửa Phản Hồi</h2>
+                <span class="close">&times;</span>
+            </div>
+            <div class="modal-body">
+                <form id="editFeedbackForm">
+                    <input type="hidden" id="editId">
+                    <div class="form-group">
+                        <label for="editName">Họ Tên:</label>
+                        <input type="text" id="editName" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="editEmail">Email:</label>
+                        <input type="email" id="editEmail" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="editPhone">Điện Thoại:</label>
+                        <input type="tel" id="editPhone">
+                    </div>
+                    <div class="form-group">
+                        <label for="editProduct">Sản Phẩm:</label>
+                        <input type="text" id="editProduct" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="editRating">Đánh Giá:</label>
+                        <select id="editRating" required>
+                            <option value="1">1 Sao</option>
+                            <option value="2">2 Sao</option>
+                            <option value="3">3 Sao</option>
+                            <option value="4">4 Sao</option>
+                            <option value="5">5 Sao</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="editStatus">Trạng Thái:</label>
+                        <select id="editStatus" required>
+                            <option value="pending">Chờ Duyệt</option>
+                            <option value="approved">Đã Duyệt</option>
+                            <option value="rejected">Từ Chối</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="editFeedback">Nội Dung Phản Hồi:</label>
+                        <textarea id="editFeedback" rows="4" required></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label for="editReply">Phản Hồi Của Admin:</label>
+                        <textarea id="editReply" rows="4" placeholder="Nhập phản hồi của bạn..."></textarea>
+                    </div>
+                    <div class="form-actions">
+                        <button type="submit" class="btn-primary">Lưu Thay Đổi</button>
+                        <button type="button" class="btn-secondary close-modal">Hủy</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- Delete Confirmation Modal -->
+    <div id="deleteConfirmModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>Xác Nhận Xóa</h2>
+                <span class="close">&times;</span>
+            </div>
+            <div class="modal-body">
+                <p>Bạn có chắc chắn muốn xóa phản hồi này không?</p>
+                <p>Hành động này không thể hoàn tác.</p>
+            </div>
+            <div class="modal-footer">
+                <button id="confirmDelete" class="btn-danger">Xóa</button>
+                <button class="btn-secondary close-modal">Hủy</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="api.js"></script>
+    <script src="admin.js"></script>
+    <script src="feedback.js"></script>
+</body>
+</html>
