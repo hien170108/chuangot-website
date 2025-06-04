@@ -1,8 +1,6 @@
 # Website Chua&Ngọt
 
-<div style="display: flex; justify-content: center; align-items: center;">!
-    <img src="img/favicon.png" alt="Chua&Ngọt Logo" class="logo-img" />
-</div>
+<img src="img/favicon.png" alt="Chua&Ngọt Logo" style="display: block; margin-left: auto; margin-right: auto; width: 10%;"/>
 
 ## Giới Thiệu
 
