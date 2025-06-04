@@ -7,6 +7,11 @@
 
 Website "Chua&Ngọt" là một dự án cá nhân được phát triển nhằm giới thiệu các sản phẩm sữa chua tự nhiên, cung cấp thông tin chi tiết, thu thập đánh giá từ khách hàng, và truyền tải câu chuyện thương hiệu. Dự án được xây dựng với mục tiêu mang đến trải nghiệm người dùng mượt mà và trực quan trên cả thiết bị di động và máy tính để bàn.
 
+<div align="center">
+      <img src="https://github.com/user-attachments/assets/443943ca-6524-4e77-9fa7-82189959dafd" style="width: 50%;"/>
+      <img src="https://github.com/user-attachments/assets/71573cac-46da-4aa9-a7dd-3ff7d27d7646" style="width: 11%;"/>
+</div>
+
 ## Các Tính Năng Chính
 
 * **Trang Chủ (Home Page):** Giới thiệu tổng quan về thương hiệu và các sản phẩm nổi bật.
@@ -40,16 +45,6 @@ Website "Chua&Ngọt" là một dự án cá nhân được phát triển nhằm
     ```
 2.  **Mở các file HTML:**
     Mở file `index.html` trong trình duyệt web của bạn. Bạn có thể mở trực tiếp các file `products.html`, `about.html`, `feedback.html` để xem các trang khác.
-
-## Liên Hệ
-
-Nếu có bất kỳ câu hỏi nào về dự án này, vui lòng liên hệ:
-
-* **Email:** ngotvachua@gmail.com
-* **Zalo:** 0382092008
-* **Facebook:** [https://www.facebook.com/profile.php?id=61576622030774](https://www.facebook.com/profile.php?id=61576622030774)
-* **Instagram:** [https://www.instagram.com/chua_va_ngot](https://www.instagram.com/chua_va_ngot)
-* **TikTok:** [https://www.tiktok.com/@chuavuangotdu](https://www.tiktok.com/@chuavuangotdu)
 
 ---
 © 2025 Chua&Ngọt.
