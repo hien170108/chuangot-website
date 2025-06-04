@@ -1,7 +1,7 @@
 <div class="display: flex;
   justify-content: center;
   align-items: center;">
-      <img src="../img/favicon.png" alt="" style="width: 10%;"/>
+      <img src="img/favicon.png" alt="" style="width: 10%;"/>
       <h1>Website Chua&Ngọt</h1>
 </div>
 
