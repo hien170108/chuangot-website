@@ -35,7 +35,7 @@ Website "Chua&Ngọt" là một dự án cá nhân được phát triển nhằm
 
 1.  **Clone repository:**
     ```bash
-    git clone [https://github.com/your-username/chua-ngot-website.git](https://github.com/hiennq1701/chua-ngot-website.git)
+    git clone https://github.com/hiennq1701/chua-ngot-website.git
     ```
 2.  **Mở các file HTML:**
     Mở file `index.html` trong trình duyệt web của bạn. Bạn có thể mở trực tiếp các file `products.html`, `about.html`, `feedback.html` để xem các trang khác.
